@@ -1,0 +1,1 @@
+This is a private repository for the [Theia](https://theia.theaiinstitute.com/) demo.
