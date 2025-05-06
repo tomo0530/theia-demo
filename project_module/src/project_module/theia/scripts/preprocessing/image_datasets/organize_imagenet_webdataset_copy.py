@@ -26,17 +26,14 @@ def check_existing_shard(path: str) -> bool:
         bool: True for complete shard.
             False for non-existing or broken shard.
     """
-    if not os.path.exists(path):
-        return False
-
     try:
         tarf = tarfile.open(path)
         for _ in tarf.getmembers():
             pass
-        return True
     except (ValueError, tarfile.ReadError, tarfile.CompressionError) as e:
-        print(f"Error checking shard {path}: {e}")
+        print(e)
         return False
+    return True
 
 
 def create_shard(
@@ -83,12 +80,11 @@ def main() -> None:
     parser.add_argument("--samples-per-shard", type=int, default=1000)
     args = parser.parse_args()
 
-    # match args.dataset:
-    #     case "imagenet":
-    #         IMAGE_DATASET_RAW_DIR = args.imagenet_raw_path
-    #     case _:
-    #         raise NotImplementedError(f"{args.dataset} is not supported")
-    IMAGE_DATASET_RAW_DIR = args.imagenet_raw_path
+    match args.dataset:
+        case "imagenet":
+            IMAGE_DATASET_RAW_DIR = args.imagenet_raw_path
+        case _:
+            raise NotImplementedError(f"{args.dataset} is not supported")
 
     if args.tmp_shard_path == "None":
         TMP_SHARD_PATH = None

@@ -13,10 +13,10 @@ from sklearn.decomposition import PCA
 from transformers import SamModel, SamProcessor
 from transformers.pipelines import MaskGenerationPipeline
 
-from theia.decoding.depth_anything import decode_depth_anything
-from theia.decoding.dinov2 import decode_dinov2
-from theia.decoding.sam import decode_sam
-from theia.preprocessing.feature_extraction_core import (
+from ..decoding.depth_anything import decode_depth_anything
+from ..decoding.dinov2 import decode_dinov2
+from ..decoding.sam import decode_sam
+from ..preprocessing.feature_extraction_core import (
     get_feature_outputs,
     get_model,
 )

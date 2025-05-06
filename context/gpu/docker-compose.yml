@@ -33,7 +33,7 @@ services:
     working_dir: /home/${USER}/${PROJECT}
     tty: true
 
-    runtime: nvidia
+    # runtime: nvidia
     deploy:
       resources:
         reservations:

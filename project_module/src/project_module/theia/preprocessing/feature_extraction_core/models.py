@@ -6,7 +6,8 @@ import torch
 import torch.nn as nn
 from numpy.typing import NDArray
 from torch.nn.functional import interpolate
-from theia.foundation_models import (
+# from theia.foundation_models import (
+from ...foundation_models import (
     get_clip_feature,
     get_clip_model,
     get_depth_anything_feature,

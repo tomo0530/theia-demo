@@ -3,7 +3,7 @@
 import torch
 import torch.nn as nn
 from einops import rearrange
-from theia.foundation_models.vision_models.depth_anything import DepthAnythingForDepthEstimation
+from ..foundation_models.vision_models.depth_anything import DepthAnythingForDepthEstimation
 from numpy.typing import NDArray
 from torch.nn.functional import interpolate
 

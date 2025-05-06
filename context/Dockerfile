@@ -111,6 +111,14 @@ RUN curl -sSL https://install.python-poetry.org/ | python3 - --version ${POETRY_
     ln -s ${POETRY_HOME}/bin/poetry /usr/local/bin/poetry
 
 
+# install libgl1-mesa-dev fro opencv
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    libgl1-mesa-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+
 # ==========================================
 # Create user in the container to avoid permission matter 
 # incompatible between host and container user

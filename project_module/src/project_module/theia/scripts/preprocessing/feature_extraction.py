@@ -7,6 +7,7 @@ import json
 import math
 import multiprocessing
 import os
+import sys
 from io import BytesIO
 from os.path import join
 from typing import Any, Generator, Iterable, Optional
@@ -25,9 +26,17 @@ except ImportError as e:
     print (e)
     print ("No TF usable. It's ok if you are not processing OXE dataset.")
 
-from theia.dataset import ALL_IMAGE_DATASETS, ALL_OXE_DATASETS, ALL_VIDEO_DATASETS
-from theia.dataset.oxe.oxe_common import oxe_dsname2path
-from theia.preprocessing.feature_extraction_core import (
+# from theia.dataset import ALL_IMAGE_DATASETS, ALL_OXE_DATASETS, ALL_VIDEO_DATASETS
+# from theia.dataset.oxe.oxe_common import oxe_dsname2path
+# from theia.preprocessing.feature_extraction_core import (
+#     check_existing_shard,
+#     decode_image_npy_only,
+#     get_feature_outputs,
+#     get_model,
+# )
+from ...dataset import ALL_IMAGE_DATASETS, ALL_OXE_DATASETS, ALL_VIDEO_DATASETS
+from ...dataset.oxe.oxe_common import oxe_dsname2path
+from ...preprocessing.feature_extraction_core import (
     check_existing_shard,
     decode_image_npy_only,
     get_feature_outputs,
